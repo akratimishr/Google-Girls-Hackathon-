@@ -1,0 +1,65 @@
+{% extends "basic/inner-page.html" %}
+{% block body_block %}
+
+<div class="registration-form">
+    {% if registered %}
+    <h1>Thank you for registering!</h1>
+    <section id="services" class="services">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Subscriptions</h2>
+                <p>Following are the subscription methods provided by our website</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"><a href="{% url "basic:home" %}">
+                        <div class="icon-box">
+                            <div class="icon"><i class="fas fa-heartbeat"></i></div>
+                            <h4>Free</h4>
+                            <p>Book your fully authenticated and experienced Caretaker without much hassle and full
+                                guarantee</p>
+                        </div>
+                    </a></div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <div class="icon"><i class="fas fa-pills"></i></div>
+                        <h4><a href="#paymentgateway#">Full package</a></h4>
+                        <p>Our website directs you to the leading pharmaceutical website considering all privacy and
+                            security
+                            concerns.</p>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    {% else %}
+    <h1>Register Here!</h1>
+    <h3> fill out the form:</h3>
+    <div class="form-icon">
+        <span><i class="icon icon-user"></i></span>
+    </div>
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <div class="form-group">
+            <input type="submit" class="btn btn-block create-account" value="Register">
+        </div>
+    </form>
+    <div class="social-media">
+        <h5>Sign up with social media</h5>
+        <div class="social-icons">
+            <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
+            <a href="#"><i class="icon-social-google" title="Google"></i></a>
+            <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+{% endblock %}

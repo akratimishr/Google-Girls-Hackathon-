@@ -1,0 +1,28 @@
+{% extends "basic/inner-page.html" %}
+{% block body_block %}
+{% load static %}
+
+<h1>Caretakers Available</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit tempore temporibus ullam, expedita non beatae, dignissimos cupiditate possimus totam explicabo hic at rem minima. Earum praesentium quisquam in distinctio sit.</p>
+    <div class="djang2">
+        {% if access_records %}
+            <table>
+                <th>Site Name</th>
+                <th>Date Accessed</th>
+                {% for rec in access_records %}
+                    <tr>
+                        <img src="{% static "{rec.profile_pic}" } class="rounded-circle z-depth-0" alt="avatar image" width="30" height="30">
+                        <td>{{ rec.name }}</td>
+                        <td>{{ rec.age }}</td>
+                        <td>{{ rec.gender }}</td>
+                        <td>{{ rec.Ed_q }}</td>
+                        <td>{{ rec.exp }}</td>
+                        <td>{{ rec.city }}</td>
+                        <td>{{ rec.resume_drive }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %} 
+            <p> NO Data found! </p>
+        {% endif %}    
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "basic/inner-page.html" %}
+{% block body_block %}
+
+<h1>Please Login</h1>
+
+<div class="registration-form">
+  <form action="{% url "basic:login_citizen" %}" method="POST">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Enter username">
+    <label for="username">Phone number:</label>
+    <input type="text" name="username" placeholder="Enter number">
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="Enter Password">
+    <input type="submit" value="Login">
+  </form>
+  <div class="social-media">
+      <h5>Sign in with social media</h5>
+      <p>Don't have an account? <a href="{% url "basic:register_citizen" %}">Create one </a></p>
+      <div class="social-icons">
+          <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
+          <a href="#"><i class="icon-social-google" title="Google"></i></a>
+          <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "basic/inner-page.html" %}
+{% block body_block %}
+
+<div class="registration-form">
+    {% if registered %}
+        <h1>Thank you for registering!</h1>
+    {% else %}
+        <h1>Register Here!</h1>
+        <h3> fill out the form:</h3>
+        <div class="form-icon">
+            <span><i class="icon icon-user"></i></span>
+        </div>
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <div class="form-group">
+                <button type="button" class="btn btn-block create-account">Register</button>
+            </div>
+        </form>
+    {% endif %}
+    <div class="social-media">
+        <h5>Sign up with social media</h5>
+        <div class="social-icons">
+            <a href="#"><i class="icon-social-facebook" title="Facebook"></i></a>
+            <a href="#"><i class="icon-social-google" title="Google"></i></a>
+            <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+{% endblock %}
